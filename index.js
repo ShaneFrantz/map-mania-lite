@@ -1,26 +1,3 @@
-const http = require('http');
-const fs = require('fs'); // Import the file system module
-
-const server = http.createServer((req, res) => {
-  // Set the response header to indicate that the response contains HTML
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-
-  // Read the HTML file and send it as the response
-  fs.readFile('index.html', (err, data) => {
-    if (err) {
-      res.end('Error reading HTML file');
-    } else {
-      res.end(data);
-    }
-  });
-});
-
-const port = process.env.PORT || 3000;
-
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 // Notes relating to differences from other tutorials:
 // 1 - Renamed "Map, Map, Map" to "myMapID, gMap, map"
 
